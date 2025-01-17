@@ -1,4 +1,3 @@
-
 package org.example.command;
 
 import org.example.Order;
@@ -12,7 +11,11 @@ public class PlaceOrderCommand implements OrderCommand {
 
     @Override
     public void execute() {
-        // TODO: Implement order placement logic
+        if (order == null || !order.isValid()) {
+            System.out.println("Order placement failed: Invalid order.");
+            return;
+        }
+
         System.out.println("Order placed successfully: " + order.getId());
     }
 }
